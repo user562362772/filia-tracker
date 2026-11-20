@@ -1,0 +1,165 @@
+/* ===== COLORES (modo claro) — cambia aquí la paleta ===== */
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #f6f4ef;
+  --card: #fff;
+  --tx: #1d1d1b;
+  --mut: #77746c;
+  --bd: #e5e1d8;
+  --ac: #6b6a66;     /* color de la pestaña activa */
+  --a: #2e9e5b;      /* A = verde */
+  --b: #e8892b;      /* B = naranja */
+  --c: #d8403a;      /* C = rojo */
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+/* ===== COLORES (modo oscuro) ===== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141413; --card: #1f1f1d; --tx: #f2efe8; --mut: #9a968b; --bd: #33322e;
+    --ac: #5c5a55; --a: #2fae65; --b: #e8892b; --c: #e5534d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141413; --card: #1f1f1d; --tx: #f2efe8; --mut: #9a968b; --bd: #33322e;
+  --ac: #5c5a55; --a: #2fae65; --b: #e8892b; --c: #e5534d;
+}
+
+/* ===== BASE ===== */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font: 16px/1.4 -apple-system, system-ui, "Segoe UI", sans-serif;
+}
+main { max-width: 520px; margin: 0 auto; padding: 16px; }
+[hidden] { display: none !important; }
+.mut { color: var(--mut); font-size: 14px; }
+
+/* ===== TARJETAS ===== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--mut);
+  margin: 0 0 10px;
+}
+
+/* ===== PESTAÑAS ===== */
+.tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.tabs button { flex: 1; font-weight: 600; }
+.tabs button.on { background: var(--ac); color: #fff; border-color: var(--ac); }
+
+/* ===== BOTONES ===== */
+button {
+  font: inherit;
+  color: inherit;
+  border: 1px solid var(--bd);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+.row { display: flex; gap: 10px; }
+.row > * { flex: 1; }
+
+/* ===== BOTONES A, B, C ===== */
+.hero { text-align: center; }
+.btns { display: flex; gap: 10px; margin-top: 14px; }
+.abtn {
+  flex: 1;
+  color: #fff;
+  border: 0;
+  border-radius: 16px;
+  padding: 14px 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.abtn small { display: block; font-size: 12px; font-weight: 500; opacity: .9; margin-top: 2px; }
+.abtn:active { transform: scale(.96); }
+
+/* ===== TIEMPO DESDE EL ÚLTIMO C ===== */
+.since { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 6px; }
+.since b { display: block; font-size: 24px; font-variant-numeric: tabular-nums; }
+.since span { font-size: 11px; color: var(--mut); }
+.since-empty { grid-column: 1 / -1; color: var(--mut); font-size: 14px; }
+
+/* ===== TABLA DE ESTADÍSTICAS ===== */
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+td, th { padding: 6px 4px; text-align: center; border-bottom: 1px solid var(--bd); } 
+td:first-child, th:first-child { text-align: left; }
+
+/* ===== LISTAS ===== */
+.li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--bd);
+}
+.li button { padding: 4px 10px; }
+.tag {                      /* la letra de color (A/B/C) */
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 0 6px;
+  margin-right: 8px;
+  font-size: 13px; 
+}
+
+/* ===== FORMULARIOS ===== */
+input, textarea, select {
+  width: 100%;
+  font: inherit;
+  color: var(--tx);
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+/* ===== CALENDARIO ===== */
+.hd, .cal {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+  text-align: center;
+}
+.hd { font-size: 12px; color: var(--mut); margin: 12px 0 6px; }
+.cd {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1.1;
+  padding: 0;
+  border: 1px solid var(--bd);
+  background: var(--bg);
+  color: var(--tx);
+}
+.cd span { font-size: 16px; }
+.cd.more span { font-size: 11px; }
+.cd b { font-size: 14px; line-height: 1; }
+.cd.colored { color: #fff; border-color: transparent; }
+.cd.sel { outline: 2px solid var(--tx); outline-offset: 1px; }
+.cd.fut { background: transparent; border-style: dashed; opacity: .4; }
+
+/* Leyenda */
+.leg { display: flex; gap: 14px; margin-top: 12px; font-size: 12px; color: var(--mut); flex-wrap: wrap; }
+.leg i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
