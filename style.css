@@ -89,9 +89,9 @@ button {
 .abtn:active { transform: scale(.96); }
 
 /* ===== TIEMPO DESDE EL ÚLTIMO C ===== */
-.since { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 6px; }
-.since b { display: block; font-size: 24px; font-variant-numeric: tabular-nums; }
-.since span { font-size: 11px; color: var(--mut); }
+.since { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
+.since b { display: block; font-size: 34px; font-variant-numeric: tabular-nums; }
+.since span { font-size: 13px; color: var(--mut); }
 .since-empty { grid-column: 1 / -1; color: var(--mut); font-size: 14px; }
 
 /* ===== TABLA DE ESTADÍSTICAS ===== */

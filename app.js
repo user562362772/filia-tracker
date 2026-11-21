@@ -146,7 +146,7 @@ function renderSince() {
   const cell = (n, label) => `<div><b>${n}</b><span>${label}</span></div>`;
   $('since').innerHTML =
     cell(e.months, 'meses') + cell(e.days, 'días') + cell(e.hours, 'horas') +
-    cell(e.mins, 'min') + cell(e.secs, 'seg');
+    cell(e.mins, 'min');
 }
 
 // Tabla: esta semana / mes / año / total, con una columna por tipo
@@ -371,4 +371,3 @@ $('cal').onclick = e => {
    --------------------------------------------------------------------- */
 render();
 setInterval(render, 60000);        // repinta todo cada minuto (por si cambia el día)
-setInterval(renderSince, 1000);    // el reloj "desde el último C" avanza cada segundo
